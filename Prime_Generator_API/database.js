@@ -1,6 +1,5 @@
 const sqlite3=require('sqlite3').verbose();
 
-sqlite.open()
 // creating a new database connection
 const db=new sqlite3.Database('./db/sample.db',(err)=>{
     if(err) 
@@ -14,7 +13,6 @@ db.run('CREATE TABLE IF NOT EXISTS USERS(ID INTEGER PRIMARY KEY AUTOINCREMENT,'+
 'END INTEGER,TIMEELAPSED REAL,ALGORITHM TEXT,TOTALPRIMES INTEGER);',(err)=>{
     if(err)
         console.log(err.message);
-    console.log('table created');
 });
 
 /**

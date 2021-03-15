@@ -29,6 +29,12 @@ app.use((req,res,next)=>{
     next();
 });
 
+app.get('/',(req,res)=>{
+    res.status(200).json({
+        message:"Welcome to prime generator API use /prime endpoint to get results"    
+    });
+});
+
 // handling GET request on /prime end point
 app.get('/prime',(req,res)=>{
     run(req,res).catch(err=>console.log(err));
