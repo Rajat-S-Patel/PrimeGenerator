@@ -44,8 +44,9 @@ try{
     }
     if(ans!=null){
         console.log("Total primes: ",ans.length);
-        // printing the result on the console
-        console.log(ans);
+        // printing the result on the console (1 prime / line)
+        for(let i of ans)
+            console.log(i);
     }
 }
 catch(err)
