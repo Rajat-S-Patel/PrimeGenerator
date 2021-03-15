@@ -1,5 +1,6 @@
 const sqlite3=require('sqlite3').verbose();
 
+sqlite.open()
 // creating a new database connection
 const db=new sqlite3.Database('./db/sample.db',(err)=>{
     if(err) 
