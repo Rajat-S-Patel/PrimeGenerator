@@ -46,6 +46,7 @@ function resolve(start, end, algo) {
         };
         return errObj;
     }
+    // calculating execution time in milliseconds
     var elapsedSecond = performance() - startTime;
     return [ans, elapsedSecond, choice];
 }
@@ -84,7 +85,7 @@ function naivePrimes(start,end) {
     if(end>10**6) throw new Error(wrongAlgoErr);
     
     if(start>end) throw new RangeError(errMessage);
-    
+
     primes=[];
     for(let i=start;i<=end;i++){
         if(isPrime(i)){
