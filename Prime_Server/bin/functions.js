@@ -12,6 +12,7 @@
     }
     return true;
 }
+
 /**
  * Compute prime numbers in the given rage using naive algorithm.
  * Time complexity O(N*sqrt(N)), where N the length of range.

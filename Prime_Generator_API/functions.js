@@ -190,5 +190,6 @@ const wrongAlgoErr='Selected Algorithm is not suitable for the given input';
 
 var ans=resolve(workerData.start,workerData.end,workerData.algo);
 
+
 // passing computed result to the main thread
 parentPort.postMessage(ans);
