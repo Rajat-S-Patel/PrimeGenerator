@@ -3,7 +3,7 @@
  * @param {Number} num  Number to check wheather it's prime or not
  * @returns true if the number is prime and false otherwise.
  */
-function isPrime(num) {
+ function isPrime(num) {
     if(num<2) return false;
     for(let i=2;i*i<=num;i++){
         if(num%i==0){
