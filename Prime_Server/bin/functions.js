@@ -59,6 +59,7 @@ function findPrimesSieve(start,end) {
     end=Number(end);
     
     if(isNaN(start)||isNaN(end)) throw new TypeError(typeErrMessage);
+    
     if(end>10**6) throw new Error(wrongAlgoErr);
     
     if(start>end) throw new RangeError(errMessage);
@@ -107,7 +108,7 @@ function segmentedSieve(start,end){
     if((end-start) > 10**6) throw new Error(wrongAlgoErr);
 
     if(start>end) throw new RangeError(errMessage);
-    var primes=findPrimesSieve(2,Math.sqrt(end));    // find all primes in range [0,sqrt(end)]
+    var primes=findPrimesSieve(2,Math.max(Math.sqrt(end),2));    // find all primes in range [0,sqrt(end)]
     var sieve=[];
     for(let i=0;i<end-start+1;i++){
         sieve[i]=true;              // mark all elements in range [0,end-start+1] as true
