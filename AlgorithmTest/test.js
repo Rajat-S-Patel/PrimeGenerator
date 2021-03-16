@@ -2,6 +2,7 @@ const fn=require('../Prime_Server/bin/functions');
 
 function getRandom(start,end)
 {
+    // generate random number in the range [start,end]
     return Math.round(Math.random()*(end-start) + start);
 }
 
