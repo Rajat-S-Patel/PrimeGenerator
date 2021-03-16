@@ -21,7 +21,7 @@ console.log(rangeMessage);
 const menu= chalk.cyanBright('Select the algorithm:\n'+
 '1. Naive Approach (suitable for numbers <=10^4)\n'+
 '2. Sieve of Eratosthenes (suitable for numbers <=10^6)\n'+
-'3. Segmented Sieve (suitable for large numbers upto 10^14 within range <=10^6\n');
+'3. Segmented Sieve (suitable for large numbers upto 10^12 and (end-start) <=10^6\n');
 console.log(menu);
 
 const choice=prompt(chalk.whiteBright('Enter your choice:'));
