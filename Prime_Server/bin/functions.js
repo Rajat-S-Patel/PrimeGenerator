@@ -94,7 +94,7 @@ function findPrimesSieve(start,end) {
  * @returns Array of prime numbers in the given range
  * @throws {TypeError} if params are not Numbers
  * @throws {RangeError} if start > end
- * @throws {Error} if end > 10^6
+ * @throws {Error} if end-start > 10^6 or sqrt(end) > 10^6
  */
 
 function segmentedSieve(start,end){
@@ -102,28 +102,28 @@ function segmentedSieve(start,end){
     start=Number(start);
     end=Number(end);
 
-    if(isNaN(start)||isNaN(end)) throw new TypeError(typeErrMessage);
+    if(isNaN(start)||isNaN(end)|| start < 0 || end < 0) throw new TypeError(typeErrMessage);
     
     if((end-start) > 10**6) throw new Error(wrongAlgoErr);
 
     if(start>end) throw new RangeError(errMessage);
-    
-    var primes=findPrimesSieve(0,Math.ceil(Math.sqrt(end)));    // find all primes in range [0,sqrt(end)]
+    var primes=findPrimesSieve(2,Math.sqrt(end));    // find all primes in range [0,sqrt(end)]
     var sieve=[];
     for(let i=0;i<end-start+1;i++){
         sieve[i]=true;              // mark all elements in range [0,end-start+1] as true
     }
     
     for(const p of primes){
-        var lowlim=Math.floor(start/p)*p;       // calculate lowlim (smallest multiple of p>=start)
-        if(lowlim<start) lowlim+=p;
+        var lowlim=Math.ceil(start/(p))*p;
+        lowlim=Math.max(p*p,lowlim);        // calculate lowlim (smallest multiple of p >= start)
         for(let i=lowlim;i<=end;i+=p){
             if(i>=start)
                 sieve[i-start]=false;   // mark all multiple of p as false in range [start,end]
         }
     }
+
     primes=[];
-    for(let i=start;i<=end;i++){
+    for(let i=Math.max(start,2);i<=end;i++){
         if(sieve[i-start]) primes.push(i);  // push all the marked indices in range [start,end] in primes array
     }
     return primes;
@@ -131,7 +131,7 @@ function segmentedSieve(start,end){
 
 // error messages based on the error
 const errMessage="End must be greater than or equal to Start!!";
-const typeErrMessage='Input must be numbers';
+const typeErrMessage='Input must be non negative numbers';
 const wrongAlgoErr='Selected Algorithm is not suitable for the given input';
 
 module.exports={
