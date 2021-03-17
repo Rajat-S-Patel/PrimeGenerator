@@ -8,7 +8,7 @@ Get prime numbers in the given range.
 ## 1. Prime_Server
 
 As already mentioned, it is a console application for generating prime numbers in the given range.
-User can install the node package usine ```npm install -g .``` and can access the application using terminal by typing
+User can install the node package using ```npm install -g .``` and can access the application using terminal by typing
 ```primegenerator``` command. I have implemented 3 algorithms for computing the prime numbers in the given range in javascript.
 
 * Naive algorithm
